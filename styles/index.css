@@ -280,6 +280,10 @@
             #ham{
                 display: none;
             }
+
+            .video-list {
+                width: 100%;
+            }
         }
 
   

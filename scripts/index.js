@@ -3,15 +3,29 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cconten
   .then(data => {
     const container = document.getElementById("video-container");
     container.innerHTML = "";
-
     data.items.forEach(item => {
       const myVideo = item.id;
       const title = item.snippet.title;
+      const channelTitle = item.snippet.channelTitle;
+      const publishedDate = item.snippet.publishedAt;
+      const thumbnail = item.snippet.thumbnails.default.url;
+
       const myVideoList = document.createElement("div");
       myVideoList.setAttribute("class", "video-list");
       myVideoList.innerHTML = `
         <iframe src="https://www.youtube.com/embed/videoseries?list=${myVideo}" frameborder="0" allowfullscreen></iframe>
-        <h3>${title}</h3>`;
+        
+        <div class="wrapper">
+        <img src="${thumbnail}" alt="${title} thumbnail">
+        <section>
+        <p>${channelTitle}</p>
+        <p>${title}</p>
+        <p>${publishedDate}</p>
+        </section>
+        
+        </div>
+        
+      `;
       container.appendChild(myVideoList);
     });
   })

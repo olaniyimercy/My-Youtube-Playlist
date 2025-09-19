@@ -11,8 +11,7 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cconten
       videoList.setAttribute("class", "video-list");
       videoList.innerHTML = `
         <h3>${title}</h3>
-        <iframe src="https://www.youtube.com/embed/videoseries?list=${myVideo}" frameborder="0" allowfullscreen></iframe>
-      `;
+        <iframe src="https://www.youtube.com/embed/videoseries?list=${myVideo}" frameborder="0" allowfullscreen></iframe>`;
       container.appendChild(videoList);
     });
   })

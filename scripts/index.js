@@ -7,12 +7,12 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cconten
     data.items.forEach(item => {
       const myVideo = item.id;
       const title = item.snippet.title;
-      const videoList = document.createElement("div");
-      videoList.setAttribute("class", "video-list");
-      videoList.innerHTML = `
+      const myVideoList = document.createElement("div");
+      myVideoList.setAttribute("class", "video-list");
+      myVideoList.innerHTML = `
         <iframe src="https://www.youtube.com/embed/videoseries?list=${myVideo}" frameborder="0" allowfullscreen></iframe>
         <h3>${title}</h3>`;
-      container.appendChild(videoList);
+      container.appendChild(myVideoList);
     });
   })
   .catch(error => console.error("Error fetching YouTube data:", error));
